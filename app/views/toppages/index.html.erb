@@ -3,8 +3,15 @@
    <div class="text-center">
     
     <h1 class="title">IZAKAYA review</h1>
-  
     
+    <% if logged_in? %>
+      <%= link_to 'マイページへ', root_url, class: 'btn btn-primary' %>
+      <%= link_to '新規投稿', root_url, class: 'btn btn-primary' %>
+      
+    <% else %>
+      <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
+    <% end %>
   </div>
   
   
