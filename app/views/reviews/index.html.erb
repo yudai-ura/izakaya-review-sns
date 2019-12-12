@@ -1,0 +1,12 @@
+<% @reviews.each do |review| %>
+  <div class='review-box'>
+    <div><%= review.user.name %></div>
+    <div><%= review.title %></div>
+    
+    <div><%= review.content %></div>
+    <div><%= review.point %></div>
+    <div><%= review.created_at %></div> 
+      
+  </div>
+
+  <% end  %>
