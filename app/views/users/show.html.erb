@@ -1,0 +1,37 @@
+<div class='row'>
+    
+  <aside class='col-sm-2'>
+    <div class='user-profile'>
+       <p>
+         <%= @user.name %>
+       </p>
+       <P>ここにプロフィールを表示します</P>
+      
+    </div>
+     
+      
+      
+      <% if current_user == @user %>
+        <%= link_to 'プロフィール編集', '', class: 'btn btn-primary' %>
+        <%= link_to '新規投稿', new_review_path, class: 'btn btn-primary' %>
+      
+      <% else %>
+        <%= link_to 'フォローする', '', class: 'btn btn-primary' %>
+      <% end %>
+    
+      <%= link_to 'レビューを見る', reviews_path, class: 'btn btn-primary' %>
+      
+   
+  </aside>
+  <div class="col-sm-10">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">マイレビュー </a></li>
+      <li class="nav-item"><a href="#" class="nav-link">お気に入り</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロー</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">フォロワー</a></li>
+    </ul>
+    <%= render 'reviews/reviews', reviews: @reviews %>
+  </div>
+    
+</div>
