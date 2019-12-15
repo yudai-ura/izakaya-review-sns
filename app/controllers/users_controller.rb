@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:edit, :update, :destory, :followings, :followers]
+  before_action :require_user_logged_in, only: [:edit, :update, :destory, :followings, :followers, :likes]
   
   
   
@@ -50,6 +50,12 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
+
+  def likes
+    @user = User.find(params[:id])
+    @favoreview = @user.favoreview
+    counts(@user)
+  end
 
   
   private

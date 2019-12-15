@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     @count_reviews = user.reviews.count
     @count_followings = user.followings.count
     @count_followers = user.followers.count
+    @count_favoreview = user.favoreview.count
   end
   
 end

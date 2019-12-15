@@ -6,7 +6,9 @@
     <div><%= review.content %></div>
     <div><%= review.point %>点</div>
     <div><%= review.created_at %></div> 
- 
+    <div>
+      <%= render 'favorites/like_button', review: review %>
+    </div>
   </div>
 
   <% end  %>
