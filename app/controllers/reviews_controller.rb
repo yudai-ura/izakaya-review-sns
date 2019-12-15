@@ -2,10 +2,14 @@ class ReviewsController < ApplicationController
  before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destory]
   
   def index
+    
     @reviews = Review.order(created_at: :desc)
   end
 
   def show
+    @review = Review.find(params[:id])
+   
+    
   end
 
   def new
