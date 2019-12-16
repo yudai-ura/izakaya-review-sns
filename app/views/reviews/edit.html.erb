@@ -1,2 +1,12 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>id: <%= @review.id %> のメッセージ編集ページ</h1>
+
+<%= form_with(model: @review, local: true) do |f| %>
+  <%= f.text_area :title, class: 'form-control', rows: 1 %> 
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.text_area :point, class: 'form-control', rows: 1 %>
+          <%= f.label "画像をアップロード" %><br><%= f.file_field :image %>
+
+  <%= f.submit '編集を保存' %>
+<% end %>
+
+<%= link_to '一覧に戻る', reviews_path %>

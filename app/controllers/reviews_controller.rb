@@ -29,18 +29,33 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def update
+     @review = Review.find(params[:id])
+
+    if @review.update(review_params)
+      flash[:success] = '正常に更新されました'
+      redirect_to @review
+    else
+      flash.now[:danger] = 'は更新されませんでした'
+      render :edit
+    end
   end
 
-  def destory
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    flash[:success] = '削除されました'
+    redirect_to reviews_url
   end
   
 private
 
   def review_params
-    params.require(:review).permit(:title, :content, :point)
+    params.require(:review).permit(:title, :content, :point, :image)
   end
   
   def correct_user

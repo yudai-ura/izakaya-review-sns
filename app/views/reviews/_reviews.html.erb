@@ -1,11 +1,12 @@
 <% reviews.each do |review| %>
   <div class='review-box'>
-    <div><%= review.user.name %></div>
+    <div><a href="<%= user_path(review.user) %>"><%= review.user.name %></a></div>
     <div><a href="<%= review_path(review) %>"><%= review.title %></a></div>
     
     <div><%= review.content %></div>
     <div><%= review.point %>点</div>
     <div><%= review.created_at %></div> 
+    
     <div>
       <%= render 'favorites/like_button', review: review %>
     </div>
