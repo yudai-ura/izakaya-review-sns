@@ -1,0 +1,18 @@
+<h1><%= @user.name %> のプロフィール編集ページ</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+
+  <%= f.label :name, 'Name' %>
+  <%= f.text_area :name, class: 'form-control', rows: 1 %> 
+  
+  <%= f.label :email, 'Email' %>
+  <%= f.text_area :email, class: 'form-control', rows: 1 %>
+  
+  <%= f.label :profile, 'プロフィール文' %>
+  <%= f.text_area :profile, class: 'form-control', rows: 4 %>
+  <%= f.label "アイコン画像をアップロード" %><br><%= f.file_field :myimage %>
+
+
+  <%= f.submit '編集を保存' %>
+<% end %>
+

@@ -9,6 +9,9 @@
       <ul class="navbar-nav">
         
         <% if logged_in? %>
+          <% if user.myimage? %>
+            <%= image_tag user.myimage.thumb50.url %>
+          <% end %>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">

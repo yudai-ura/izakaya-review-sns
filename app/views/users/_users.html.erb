@@ -4,6 +4,9 @@
       <li class="media">
         <div class="media-body">
           <div>
+            <% if user.myimage? %>
+              <%= image_tag user.myimage.thumb50.url %>
+            <% end %>
             <%= user.name %>
           </div>
           <div>

@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
- before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destory]
+  before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destory]
+  before_action :correct_user, only: [:edit, :update, :destory]
   
   def index
     
@@ -66,3 +67,5 @@ private
   end
   
 end
+
+

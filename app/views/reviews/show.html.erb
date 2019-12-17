@@ -1,3 +1,6 @@
+  <% if @review.user.myimage? %>
+    <%= image_tag @review.user.myimage.thumb50.url %>
+  <% end %>
   <div><%= @review.user.name %></div>
   <div><%= @review.title %></a></div>
     
@@ -9,6 +12,8 @@
       <%= image_tag @review.image.url %>
     <% end %>
   </div>
+  
+  
     <div>
       <%= render 'favorites/like_button', review: @review %>
     </div>

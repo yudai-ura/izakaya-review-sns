@@ -1,5 +1,14 @@
 <% reviews.each do |review| %>
   <div class='review-box'>
+    <% if review.user.myimage? %>
+          <%= image_tag review.user.myimage.thumb50.url %>
+        <% end %>
+    <div class='box-image'>
+      <% if review.image? %>
+        <%= image_tag review.image.url %>
+      <% end %>
+    </div>
+    
     <div><a href="<%= user_path(review.user) %>"><%= review.user.name %></a></div>
     <div><a href="<%= review_path(review) %>"><%= review.title %></a></div>
     
