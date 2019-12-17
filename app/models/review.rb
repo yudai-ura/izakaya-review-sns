@@ -10,4 +10,10 @@ class Review < ApplicationRecord
   has_many :favorites, foreign_key: 'review_id', dependent: :destroy
   has_many :users, through: :favorites
   
+  def self.search(search)
+      return Review.all unless search
+      Review.where(['title LIKE ?', "%#{search}%"])
+  end
+  
+  
 end

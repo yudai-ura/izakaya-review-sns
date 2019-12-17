@@ -3,8 +3,7 @@ class ReviewsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destory]
   
   def index
-    
-    @reviews = Review.order(created_at: :desc)
+    @reviews = Review.all.order(created_at: :desc).search(params[:search])
   end
 
   def show
@@ -52,6 +51,14 @@ class ReviewsController < ApplicationController
     flash[:success] = '削除されました'
     redirect_to reviews_url
   end
+  
+  
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @reviews = Review.search(params[:search])
+  end
+  
+  
   
 private
 
