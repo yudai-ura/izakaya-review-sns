@@ -4,14 +4,14 @@
     <div class='user-profile'>
       <div>
         <% if @user.myimage? %>
-          <%= image_tag @user.myimage.thumb100.url %>
+          <%= image_tag @user.myimage.thumb100.url, class: 'myimage'  %>
         <% end %>
       </div>
       
        <p>
          <%= @user.name %>
        </p>
-       <P><%= @user.profile %></P>
+       <P><%= simple_format(@user.profile) %></P>
       
     </div>
      

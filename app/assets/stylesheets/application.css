@@ -4,9 +4,9 @@
 
 .review-box {
      border: 1px solid;
-     margin: 5px;
-     padding: 15px;
-     height: 300px;
+ 
+     
+     
 }
 
 
@@ -14,9 +14,32 @@
     
     height: 400px; 
     
+    
+    
 }
 
 .box-image {
-    float: right;
     
+    display: flex;
+}
+
+.review-title {
+    font-size: 30px;
+}
+
+.box-review-content p {
+    
+     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-user-name {
+    font-size: 25px;
+}
+
+.myimage {
+    border-radius: 50px 50px;
 }

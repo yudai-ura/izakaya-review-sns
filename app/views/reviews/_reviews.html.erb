@@ -1,19 +1,29 @@
 <% reviews.each do |review| %>
   <div class='review-box'>
-    <% if review.user.myimage? %>
-          <%= image_tag review.user.myimage.thumb50.url %>
-        <% end %>
+    <div class='review-user-name'>
+      <% if review.user.myimage? %>
+        <%= image_tag review.user.myimage.thumb50.url, class: 'myimage' %>
+      <% end %>
+      <a href="<%= user_path(review.user) %>"><%= review.user.name %></a>
+    </div>
+    
+    
+    <div class='review-title'>
+      <a href="<%= review_path(review) %>"><%= review.title %></a>
+     
+    </div>
+      <p><%= review.point %>点</p> 
+      
     <div class='box-image'>
       <% if review.image? %>
         <%= image_tag review.image.url %>
       <% end %>
     </div>
+    <div class='box-review-content'><%= simple_format(review.content) %></div>
+   
     
-    <div><a href="<%= user_path(review.user) %>"><%= review.user.name %></a></div>
-    <div><a href="<%= review_path(review) %>"><%= review.title %></a></div>
+   
     
-    <div><%= review.content %></div>
-    <div><%= review.point %>点</div>
     <div><%= review.created_at %></div> 
     
     <div>
