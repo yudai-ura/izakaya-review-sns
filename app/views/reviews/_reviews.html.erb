@@ -31,7 +31,9 @@
           <%= image_tag review.image.url %>
         <% end %>
         <div style='margin: 15px;'>
-          <%= render 'favorites/like_button', review: review %>
+          <% if logged_in? %>
+            <%= render 'favorites/like_button', review: review %>
+          <% end %>
         </div>
        <div style='margin-top: 15px;'><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
     </aside>

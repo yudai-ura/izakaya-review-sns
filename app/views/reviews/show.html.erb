@@ -20,16 +20,16 @@
     <% end %>
   </div>
   
-  
+  <% if logged_in? %>
     <div class='profile-btn'>
       <%= render 'favorites/like_button', review: @review %>
     </div>
     
-    <% if @review.user == current_user %>
-      <%= link_to '編集する', edit_review_path(@review) %>
-      <%= link_to '削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-   <% end %>
-  
+        <% if @review.user == current_user %>
+          <%= link_to '編集する', edit_review_path(@review) %>
+          <%= link_to '削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+       <% end %>
+  <% end %>
   <div class='text-right'><%= @review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
   
   </div>
