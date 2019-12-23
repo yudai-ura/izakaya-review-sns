@@ -1,10 +1,15 @@
 <%= form_with(model: @review, local: true) do |f| %>
         <div class="form-group">
-          <%= f.text_area :title, class: 'form-control', rows: 1 %> 
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
-          <%= f.text_area :point, class: 'form-control', rows: 1 %>
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_area :title, class: 'form-control title-form', rows: 1 %> 
+          
+          <%= f.label :content, 'レビュー' %>
+          <%= f.text_area :content, class: 'form-control content-form', rows: 10 %>
+          
+          <%= f.label :point, '評価☆（１００点満点）' %>
+          <%= f.text_area :point, class: 'form-control point-form', rows: 1 %>
           <%= f.label "画像をアップロード" %><br><%= f.file_field :image %>
         
         </div>
-        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+        <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
       <% end %>

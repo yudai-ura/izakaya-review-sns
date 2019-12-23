@@ -1,12 +1,18 @@
-<h1>id: <%= @review.id %> のメッセージ編集ページ</h1>
+<%= link_to '一覧に戻る', reviews_path %>
+
+<h1>メッセージ編集ページ</h1>
 
 <%= form_with(model: @review, local: true) do |f| %>
-  <%= f.text_area :title, class: 'form-control', rows: 1 %> 
-          <%= f.text_area :content, class: 'form-control', rows: 5 %>
-          <%= f.text_area :point, class: 'form-control', rows: 1 %>
+  <div class="form-group">
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_area :title, class: 'form-control title-form', rows: 1 %> 
+          
+          <%= f.label :content, 'レビュー' %>
+          <%= f.text_area :content, class: 'form-control content-form', rows: 10 %>
+          
+          <%= f.label :point, '評価☆（１００点満点）' %>
+          <%= f.text_area :point, class: 'form-control point-form', rows: 1 %>
           <%= f.label "画像をアップロード" %><br><%= f.file_field :image %>
-
   <%= f.submit '編集を保存' %>
 <% end %>
 
-<%= link_to '一覧に戻る', reviews_path %>

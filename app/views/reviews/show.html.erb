@@ -1,14 +1,19 @@
-  <% if @review.user.myimage? %>
-    <%= image_tag @review.user.myimage.thumb50.url, class: 'myimage' %>
+  <%= link_to '一覧に戻る', reviews_path %>
+  
+  <div class='container reviewshow'>
+      <% if @review.user.myimage? %>
+    <%= image_tag @review.user.myimage.thumb100.url, class: 'myimage' %>
   <% end %>
   
-  <div><a href="<%= user_path(@review.user) %>"><%= @review.user.name %></a></div>
+  <a style='font-size: 45px; margin-left: 25px;' href="<%= user_path(@review.user) %>"><%= @review.user.name %></a>
   
-  <div><%= @review.title %></a></div>
-    
-  <div><%= simple_format(@review.content) %></div>
-  <div><%= @review.point %>点</div>
-  <div><%= @review.created_at %></div> 
+  
+  
+  <div style='font-size: 45px;'><%= @review.title %></a></div>
+  
+  <div class='point'>評価☆<%= @review.point %>点</div>
+  <div class='review-content'><%= simple_format(@review.content) %></div>
+  
   <div class='review-image'>
     <% if @review.image? %>
       <%= image_tag @review.image.url %>
@@ -16,7 +21,7 @@
   </div>
   
   
-    <div>
+    <div class='profile-btn'>
       <%= render 'favorites/like_button', review: @review %>
     </div>
     
@@ -24,3 +29,8 @@
       <%= link_to '編集する', edit_review_path(@review) %>
       <%= link_to '削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
    <% end %>
+  
+  <div class='text-right'><%= @review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
+  
+  </div>
+  
