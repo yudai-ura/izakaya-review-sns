@@ -16,4 +16,6 @@ class ApplicationController < ActionController::Base
     @count_favoreview = user.favoreview.count
   end
   
+  
+  
 end

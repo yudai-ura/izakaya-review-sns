@@ -3,17 +3,22 @@ class Review < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
-  validates :content, presence: true, length: {maximum: 1000}
-  validates :title, presence: true, length: {maximum: 25}
-  validates :point, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+  
+  validates :title, presence: { message: "は必ず入力してください"}, length: { message: "20字以内で入力してください", maximum: 20}
+  validates :content, presence: { message: "は必ず入力してください"}, length: {message: "1000字以内で入力してください", maximum: 1000}
+  validates :point, presence: { message: "は必ず入力してください" }, numericality: { message: "0から100(半角)の整数で入力してください", greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   
   has_many :favorites, foreign_key: 'review_id', dependent: :destroy
   has_many :users, through: :favorites
   
   def self.search(search)
-      return Review.all unless search
+    if search
       Review.where(['title LIKE ?', "%#{search}%"])
+    else
+      Review.all
+    end
   end
+  
   
   
 end

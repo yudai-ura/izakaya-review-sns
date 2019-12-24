@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-   
+    @review.favorites.count
     
   end
 
@@ -19,12 +19,12 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = 'レビューを投稿しました。'
       redirect_to reviews_path
     else
       @reviews = current_user.reviews.order(id: :desc)
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      flash.now[:danger] = 'レビューの投稿に失敗しました。'
+      render 'new'
     end
   end
 
@@ -36,10 +36,10 @@ class ReviewsController < ApplicationController
      @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      flash[:success] = '正常に更新されました'
+      flash[:success] = 'レビューが更新されました'
       redirect_to @review
     else
-      flash.now[:danger] = 'は更新されませんでした'
+      flash.now[:danger] = 'レビューは更新されませんでした'
       render :edit
     end
   end
@@ -48,15 +48,16 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
 
-    flash[:success] = '削除されました'
+    flash[:success] = 'レビューが削除されました'
     redirect_to reviews_url
   end
   
   
   def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @reviews = Review.search(params[:search])
+      @reviews = Review.search(params[:search])
+ 
   end
+  
   
   
   
@@ -72,6 +73,12 @@ private
       redirect_to root_url
     end
   end
+  
+  def favo_counts(review)
+    @reviewfavo_count = review.favorites.count
+  end
+  
+  
   
 end
 

@@ -3,12 +3,12 @@ class User < ApplicationRecord
   mount_uploader :myimage, ImageUploader
   
   before_save { self.email.downcase! }
-  validates :name, presence: true, length: { maximum: 20 }
-  validates :email, presence: true, length: { maximum: 255 },
+  validates :name, presence: { message: "を入力してください"}, length: { message: "10字以内で入力してください", maximum: 10 }
+  validates :email, presence: { message: "を入力してください"}, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
                     
-  validates :profile, length: { maximum: 200 }
+  validates :profile, length: { message: "200字以内で入力してください", maximum: 200 }
   
   has_secure_password
   

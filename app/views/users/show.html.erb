@@ -1,35 +1,4 @@
-<%= link_to '一覧に戻る', reviews_path %>
-
-<div class='container'>
-    
- 
-    <div>
-      <div style='font-size: 50px; margin-top: 20px;'>
-        <% if @user.myimage? %>
-          <%= image_tag @user.myimage.thumb100.url, class: 'myimage'  %>
-        <% end %>
-    
-        <span>  <%= @user.name %>  さんのページ</span>
-       </div>
-       
-       <% if logged_in? %>
-       <div class='profile-btn'>
-           <% if current_user == @user %>
-            <%= link_to 'プロフィール編集', edit_user_path(@user), class: 'btn btn-primary' %>
-            <%= link_to '新規投稿', new_review_path, class: 'btn btn-primary' %>
-          
-          <% else %>
-            <%= render 'relationships/follow_button', user: @user %>
-          <% end %>
-        
-          <% end %>
-       </div>
-       
-       <p>プロフィール文</p>
-       <div class='user-profile'><%= simple_format(@user.profile) %></div>
-      
-    
-  </div>
+ <%= render 'users/userprofile', user: @user %>
   
   <div class="container">
     <ul class="nav nav-tabs nav-justified mb-3">
