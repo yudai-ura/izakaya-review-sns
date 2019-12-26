@@ -19,6 +19,11 @@
         <p class='point'>お気に入り数♡ <span style='color: red;'><%= review.favorites.count %></span> 件</p>
         <p class='point'>評価☆ <%= review.point %>点</p> 
        
+       <span>【カテゴリ】</span>
+        <% review.categories.each do |category| %>
+          <%= category.name %>,
+        <% end %>
+       
         
         <div class='box-review-content'><%= simple_format(review.content) %></div>
      

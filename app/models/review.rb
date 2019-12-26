@@ -1,6 +1,9 @@
 class Review < ApplicationRecord
   belongs_to :user
   
+  has_many :review_category_relations, dependent: :destroy
+  has_many :categories, through: :review_category_relations
+  
   mount_uploader :image, ImageUploader
   
   

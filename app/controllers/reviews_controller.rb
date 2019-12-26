@@ -67,7 +67,7 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
-    params.require(:review).permit(:title, :content, :point, :image)
+    params.require(:review).permit(:title, :content, :point, :image, category_ids: [] )
   end
   
   def correct_user

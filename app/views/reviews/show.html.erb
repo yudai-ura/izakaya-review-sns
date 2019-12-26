@@ -16,6 +16,12 @@
   
   
   <div class='point'>評価☆ <%= @review.point %>点</div>
+  
+  <span>【カテゴリ】</span>
+        <% @review.categories.each do |category| %>
+          <%= category.name %>,
+        <% end %>
+  
   <div class='review-content'><%= simple_format(@review.content) %></div>
   
   <div class='review-image'>
