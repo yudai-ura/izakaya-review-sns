@@ -4,12 +4,15 @@ class ReviewsController < ApplicationController
   
   def index
     @reviews = Review.all.order(created_at: :desc).search(params[:search])
+    
+    # @fav_lists = Favorite.group(:review_id).order('count_all desc').count
+    # @reviews = Review.find(@fav_lists.keys)
+    
   end
 
   def show
     @review = Review.find(params[:id])
-    @review.favorites.count
-    
+
   end
 
   def new
@@ -74,11 +77,7 @@ private
     end
   end
   
-  def favo_counts(review)
-    @reviewfavo_count = review.favorites.count
-  end
-  
-  
+
   
 end
 

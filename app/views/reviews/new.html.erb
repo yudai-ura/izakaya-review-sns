@@ -1,19 +1,15 @@
 
-
-
 <%= form_with(model: @review, local: true) do |f| %>
 
-<% if @review.errors.any? %>
-    
-      <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-   
-  <% end %>
-
-
+  <% if @review.errors.any? %>
+      
+        <ul>
+          <% @review.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+     
+    <% end %>
 
         <div class="form-group">
           <%= f.label :title, 'タイトル' %>
