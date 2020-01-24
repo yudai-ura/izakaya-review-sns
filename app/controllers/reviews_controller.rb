@@ -60,10 +60,7 @@ class ReviewsController < ApplicationController
       @reviews = Review.search(params[:search])
  
   end
-  
-  
-  
-  
+
 private
 
   def review_params
@@ -76,8 +73,6 @@ private
       redirect_to root_url
     end
   end
-  
-
   
 end
 

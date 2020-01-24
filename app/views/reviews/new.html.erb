@@ -1,39 +1,32 @@
-
 <%= form_with(model: @review, local: true) do |f| %>
-
   <% if @review.errors.any? %>
-      
-        <ul>
-          <% @review.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-     
-    <% end %>
-
-        <div class="form-group">
-          <%= f.label :title, 'タイトル' %>
-          <%= f.text_field :title, class: 'form-control title-form', rows: 1 %> 
-          
-          <%= f.label :content, 'レビュー' %>
-          <%= f.text_area :content, class: 'form-control content-form', rows: 10 %>
-          
-          <%= f.label :point, '評価☆（１００点満点）' %>
-          <%= f.text_field :point, class: 'form-control point-form', rows: 1 %>
-          <%= f.label "画像をアップロード" %><br><%= f.file_field :image %>
-          
-        <p>
-          <%= f.label :category, 'カテゴリ' %>
-          <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %> 
-            <%= category.label do %>
-              <%= category.check_box %>
-              <%= category.text %>
-            <% end %>
-          <% end %>
-        </p>
-          
-        
-        
-        </div>
-        <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
+    <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title, class: 'form-control title-form', rows: 1 %> 
+    <%= f.label :content, 'レビュー' %>
+    <%= f.text_area :content, class: 'form-control content-form', rows: 10 %>
+          
+    <%= f.label :point, '評価☆（１００点満点）' %>
+    <%= f.text_field :point, class: 'form-control point-form', rows: 1 %>
+    <%= f.label "画像をアップロード" %><br><%= f.file_field :image %>
+          
+    <p>
+      <%= f.label :category, 'カテゴリ' %>
+      <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %> 
+        <%= category.label do %>
+          <%= category.check_box %>
+          <%= category.text %>
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+        
+  <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
+<% end %>

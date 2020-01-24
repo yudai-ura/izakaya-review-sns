@@ -2,50 +2,42 @@
   
   <div class='container row review-box'>
     
-   
-      <div class='review-box-main col-md-9'>
-        <div class='review-user-name'>
-          <% if review.user.myimage? %>
-            <%= image_tag review.user.myimage.thumb50.url, class: 'myimage' %>
-          <% end %>
-          <a href="<%= user_path(review.user) %>"><%= review.user.name %></a>
-        </div>
-        
-      
-        <div class='review-title'>
-          <a href="<%= review_path(review) %>"><%= review.title %></a>
-         
-        </div>
-        <p class='point'>お気に入り数♡ <span style='color: red;'><%= review.favorites.count %></span> 件</p>
-        <p class='point'>評価☆ <%= review.point %>点</p> 
-       
-       <span>【カテゴリ】</span>
-        <% review.categories.each do |category| %>
-          <%= category.name %>,
+    <div class='review-box-main col-md-9'>
+      <div class='review-user-name'>
+        <% if review.user.myimage? %>
+          <%= image_tag review.user.myimage.thumb50.url, class: 'myimage' %>
         <% end %>
-       
-        
-        <div class='box-review-content'><%= simple_format(review.content) %></div>
-     
-       
-      
-        
+        <a href="<%= user_path(review.user) %>"><%= review.user.name %></a>
       </div>
+      
+      <div class='review-title'>
+        <a href="<%= review_path(review) %>"><%= review.title %></a>
+      </div>
+      <p class='point'>お気に入り数♡ <span style='color: red;'><%= review.favorites.count %></span> 件</p>
+      <p class='point'>評価☆ <%= review.point %>点</p> 
+      <span>【カテゴリ】</span>
+      <% review.categories.each do |category| %>
+        <%= category.name %>,
+      <% end %>
+       
+      <div class='box-review-content'><%= simple_format(review.content) %></div>
+     
+    </div>
     <aside class='box-image col-md-3'>
      
-        <% if review.image? %>
-          <%= image_tag review.image.url %>
+      <% if review.image? %>
+        <%= image_tag review.image.url %>
+      <% end %>
+      <div style='margin: 15px;'>
+        <% if logged_in? %>
+          <%= render 'favorites/like_button', review: review %>
         <% end %>
-        <div style='margin: 15px;'>
-          <% if logged_in? %>
-            <%= render 'favorites/like_button', review: review %>
-          <% end %>
-        </div>
-       <div style='margin-top: 15px;'><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
+      </div>
+      <div style='margin-top: 15px;'><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
     </aside>
     
   </div>
-   <% end  %>
+<% end  %>
      
    
     
