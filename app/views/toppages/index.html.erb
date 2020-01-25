@@ -1,21 +1,37 @@
-<div class='container'>
-  
-   <div class="text-center">
+
+<div class"top-page">
+
+<div class="text-center">
+    <h1 class="main-title">izareview</h1>
     
-    <h1 class="title">居酒屋 review</h1>
+   <h2 class="sub-title">居酒屋のレビューサイトです。</h2>
+   <h2 class="sub-title">あなたの行きつけを共有しよう！</h2>
+    
+    
+    <div class="top-button">
+    
+    <%= link_to 'みんなのレビューを見る', reviews_path, class: 'btn btn btn-warning' %>
+    </div>
     
     <% if logged_in? %>
-      <%= link_to 'マイページへ', user_path(current_user), class: 'btn btn-primary' %>
-      <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn-primary' %>
-      
+    <div class="top-button">
+      <%= link_to 'マイページへ', user_path(current_user), class: 'btn btn btn-warning' %>
+    </div>
+    <div class="top-button">
+      <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn btn-warning' %>
+     </div> 
     <% else %>
-      <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
-      <%= link_to 'ログイン', login_path, class: 'btn btn-primary' %>
+    <div class="top-button">
+      <%= link_to '新規登録', signup_path, class: 'btn btn btn-warning' %>
+      </div>
+      <div class="top-button">
+      <%= link_to 'ログイン', login_path, class: 'btn btn btn-warning' %>
+      </div>
     <% end %>
     
-    <%= link_to 'レビューを見る', reviews_path, class: 'btn btn-primary' %>
-  </div>
+  </div> 
+ </div>
   
   
-</div>  
+
  

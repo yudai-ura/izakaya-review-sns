@@ -1,17 +1,58 @@
-.title {
-    font-size: 120px; 
+
+
+body{
+    background-color: #fff8cf;
 }
+
+h1 {
+    margin-top: 50px;
+}
+
+
+/*トップページ*/
+.main-title {
+    font-size: 9em;
+    color: #fdbf64;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  background-color: #f15922;
+}
+
+.sub-title{
+   margin-bottom: 30px;
+}
+
+.top-button {
+    margin-top: 30px;
+    margin-bottom: 50px;
+   
+}
+.top-button p{
+    margin-bottom: 3px;
+}
+
 
 .myimage {
     border-radius: 50px 50px;
+    width: 50px;
+}
+
+
+/*レビュー一覧*/
+
+
+.search-box {
+    margin-top: 30px;
+    font-size: 20px;
+    
 }
 
 .review-box {
-    border: 1px solid;
+    /*border: 1px solid;*/
     margin-top: 40px;
     padding: 20px;
    background-color: ivory;
-
+  
 }
 
 
@@ -25,14 +66,14 @@
     border-bottom: 1px solid;
 }
 
-.point {
+.review-list {
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 5px;
     
 }
 
 .box-review-content p {
-    border: 1px solid;
+   background-color: white;
      display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6;
@@ -40,6 +81,21 @@
     text-overflow: ellipsis;
     padding: 5px;
 }
+
+.image-box{
+    border: solid 5px #fffac2;
+    height: 260px;
+    width: 260px;
+    margin-top: 60px;
+    background-color: white;
+   margin-right: 30px;
+    
+}
+
+.review-time{
+    margin-top: 20px;
+}
+
 
 
 .profile-btn{
@@ -97,4 +153,15 @@
 .top-right{
     margin-bottom: 50px;
     
+}
+
+
+@media screen and (max-width: 480px) {
+    .main-title {
+    font-size: 4em;
+    margin-top: 70px;
+    }
+    h2{
+        font-size: 20px;
+    }
 }

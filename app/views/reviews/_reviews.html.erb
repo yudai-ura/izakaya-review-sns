@@ -1,7 +1,7 @@
 <% reviews.each do |review| %>
   
   <div class='container row review-box'>
-    
+
     <div class='review-box-main col-md-9'>
       <div class='review-user-name'>
         <% if review.user.myimage? %>
@@ -13,27 +13,49 @@
       <div class='review-title'>
         <a href="<%= review_path(review) %>"><%= review.title %></a>
       </div>
-      <p class='point'>お気に入り数♡ <span style='color: red;'><%= review.favorites.count %></span> 件</p>
-      <p class='point'>評価☆ <%= review.point %>点</p> 
+      
+      <div class="review-list">
       <span>【カテゴリ】</span>
       <% review.categories.each do |category| %>
         <%= category.name %>,
       <% end %>
-       
+      
+      <p>【評価】 <%= review.point %>点</p> 
+      
+      
+      
+      
+      <p>【レビュー詳細】</p>
       <div class='box-review-content'><%= simple_format(review.content) %></div>
      
-    </div>
-    <aside class='box-image col-md-3'>
      
+     
+    
+      <p>【お気に入り】 <span style='color: red;'><%= review.favorites.count %></span> 件</p>
+      
+      <% if logged_in? %>
+      
+          <%= render 'favorites/like_button', review: review %>
+      
+        <% end %>
+        </div>
+    </div>
+    
+    
+   
+    <aside class='col-md-3'>
+    <div class="text-right review-time"><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
+
+      
+      
+      <div class="image-box text-center">
       <% if review.image? %>
         <%= image_tag review.image.url %>
+        <% else %>
+        <p>画像がありません</p>
       <% end %>
-      <div style='margin: 15px;'>
-        <% if logged_in? %>
-          <%= render 'favorites/like_button', review: review %>
-        <% end %>
       </div>
-      <div style='margin-top: 15px;'><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
+      
     </aside>
     
   </div>

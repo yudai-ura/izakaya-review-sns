@@ -2,9 +2,11 @@ class ReviewsController < ApplicationController
   before_action :require_user_logged_in, only: [:new, :create, :edit, :update, :destory]
   before_action :correct_user, only: [:edit, :update, :destory]
   
+  PER =
+  
   def index
-    @reviews = Review.all.order(created_at: :desc).search(params[:search])
-    
+    @reviews = Review.all.page(params[:page]).per(15).order(created_at: :desc).search(params[:search])
+    # @reviews = Review.all.page(params[:page]).per(8)
     # @fav_lists = Favorite.group(:review_id).order('count_all desc').count
     # @reviews = Review.find(@fav_lists.keys)
     
