@@ -2,33 +2,37 @@
 <div class"top-page">
 
 <div class="text-center">
-    <h1 class="main-title">izareview</h1>
-    
+  <div class=" top-design">
+     <h1 class="main-title">いざ.Review</h1>
+    <%= image_tag 'izakaya.jpg', class: 'top-image' %>
    <h2 class="sub-title">居酒屋のレビューサイトです。</h2>
-   <h2 class="sub-title">あなたの行きつけを共有しよう！</h2>
+   <h3 class="sub-title">あなたの行きつけを共有しよう！</h3>
+    
+  
+   
     
     
-    <div class="top-button">
+    <div class="top-button-1">
     
     <%= link_to 'みんなのレビューを見る', reviews_path, class: 'btn btn btn-warning' %>
     </div>
     
     <% if logged_in? %>
-    <div class="top-button">
+    <div class="top-button-2">
       <%= link_to 'マイページへ', user_path(current_user), class: 'btn btn btn-warning' %>
     </div>
-    <div class="top-button">
+    <div class="top-button-3">
       <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn btn-warning' %>
      </div> 
     <% else %>
-    <div class="top-button">
+    <div class="top-button-2">
       <%= link_to '新規登録', signup_path, class: 'btn btn btn-warning' %>
       </div>
-      <div class="top-button">
+      <div class="top-button-3">
       <%= link_to 'ログイン', login_path, class: 'btn btn btn-warning' %>
       </div>
     <% end %>
-    
+    </div>
   </div> 
  </div>
   

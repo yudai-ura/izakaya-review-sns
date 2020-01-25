@@ -20,18 +20,18 @@
         <%= category.name %>,
       <% end %>
       
-      <p>【評価】 <%= review.point %>点</p> 
+      <p><span>【評価】</span> <%= review.point %>点</p> 
       
       
       
       
-      <p>【レビュー詳細】</p>
+      <span>【レビュー詳細】</span>
       <div class='box-review-content'><%= simple_format(review.content) %></div>
      
      
      
     
-      <p>【お気に入り】 <span style='color: red;'><%= review.favorites.count %></span> 件</p>
+      <p><span>【お気に入り】</span><span style='color: red;'><%= review.favorites.count %></span> 件</p>
       
       <% if logged_in? %>
       

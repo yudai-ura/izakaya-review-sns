@@ -1,43 +1,50 @@
 <%= link_to '一覧に戻る', reviews_path %>
+<div class='container row review-box'>
+ <div class='review-box-main col-md-9'>
+    <div class='review-user-name'>
+      <% if @review.user.myimage? %>
+        <%= image_tag @review.user.myimage.thumb100.url, class: 'myimage' %>
+      <% end %>
 
-<div class='container reviewshow'>
-  <% if @review.user.myimage? %>
-    <%= image_tag @review.user.myimage.thumb100.url, class: 'myimage' %>
-  <% end %>
-</div>
-  
-<a style='font-size: 45px; margin-left: 25px;' href="<%= user_path(@review.user) %>"><%= @review.user.name %></a>
-  
-<div style='font-size: 45px;'><%= @review.title %></div>
-
-<div class='point'>お気に入り数♡ <span style='color: red;'><%= @review.favorites.count %></span> 件</div>
-
-<div class='point'>評価☆ <%= @review.point %>点</div>
-  
-<span>【カテゴリ】</span>
-<% @review.categories.each do |category| %>
-  <%= category.name %>,
-<% end %>
-  
-<div class='review-content'><%= simple_format(@review.content) %></div>
-  
-<div class='review-image'>
-  <% if @review.image? %>
-    <%= image_tag @review.image.url %>
-  <% end %>
-</div>
-  
-<% if logged_in? %>
-  <div class='profile-btn'>
-    <%= render 'favorites/like_button', review: @review %>
+      <a href="<%= user_path(@review.user) %>"><%= @review.user.name %></a>
   </div>
-    
-  <% if @review.user == current_user %>
-    <%= link_to '編集する', edit_review_path(@review) %>
-    <%= link_to '削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-  <% end %>
-<% end %>
-<div class='text-right'><%= @review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
-  
+      <div class='review-title'><%= @review.title %></div>
+      
+      <div class="review-list">
+          <span>【カテゴリ】</span>
+          <% @review.categories.each do |category| %>
+            <%= category.name %>,
+          <% end %>
+          <p><span>【評価】</span> <%= @review.point %>点</p>
+        
+        <span>【レビュー詳細】</span>
+        <div class='review-content'><%= simple_format(@review.content) %></div>
+        <p><span>【お気に入り】</span><span style='color: red;'><%= @review.favorites.count %></span> 件</p>
+        <% if logged_in? %>
+          <%= render 'favorites/like_button', review: @review %>
 
+          <% if @review.user == current_user %>
+            <%= link_to '編集する', edit_review_path(@review) %>
+            <%= link_to '削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+          <% end %>
+      <% end %>
+        
+      </div>
+      
+</div>
+
+
+<aside class='col-md-3'>
+  <div class='text-right'><%= @review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
+  
+    <div class='image-box text-center'>
+      <% if @review.image? %>
+              <%= image_tag @review.image.url %>
+      <% else %>
+        <p>画像がありません</p>
+      <% end %>
+    </div>
+
+</aside>
+</div>
   

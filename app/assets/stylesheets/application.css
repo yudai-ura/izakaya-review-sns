@@ -1,4 +1,10 @@
+p {
+    margin: 0;
+}
 
+header{
+    margin-bottom: 15px;
+}
 
 body{
     background-color: #fff8cf;
@@ -9,27 +15,99 @@ h1 {
 }
 
 
+.margin-top-50 {
+    margin-top: 50px;
+}
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
+
 /*トップページ*/
-.main-title {
-    font-size: 9em;
-    color: #fdbf64;
-    margin-top: 100px;
-    margin-bottom: 50px;
-  background-color: #f15922;
+.top-image {
+    
+    width: 100%;
+    
+}
+.top-design{
+   position: relative;
+}
+.top-design h1 {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  font-family: 'Haettenschweiler';
+  color: white;
+  font-size: 8em;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
 }
 
-.sub-title{
-   margin-bottom: 30px;
+.top-design h2 {
+    position: absolute;
+  top: 35%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  
+  font-family: 'Haettenschweiler';
+  color: white;
+  font-size: 2em;
+  background: rgba(0,0,0,0.5);
+}
+.top-design h3 {
+    position: absolute;
+  top: 45%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  
+  font-family: 'Haettenschweiler';
+  color: white;
+  font-size: 2em;
+  background: rgba(0,0,0,0.5);
 }
 
-.top-button {
-    margin-top: 30px;
-    margin-bottom: 50px;
-   
+
+
+.top-design .top-button-1 {
+      position: absolute;
+  top: 65%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
-.top-button p{
-    margin-bottom: 3px;
+
+.top-design .top-button-2 {
+      position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
+
+.top-design .top-button-3 {
+      position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
 
 
 .myimage {
@@ -48,8 +126,8 @@ h1 {
 }
 
 .review-box {
-    /*border: 1px solid;*/
     margin-top: 40px;
+    margin-bottom: 40px;
     padding: 20px;
    background-color: ivory;
   
@@ -68,18 +146,24 @@ h1 {
 
 .review-list {
     font-size: 20px;
-    margin-top: 5px;
+    margin-top: 30px;
     
 }
 
-.box-review-content p {
+
+
+.box-review-content {
    background-color: white;
+   height: 100px;
      display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 5px;
+    
+    overflow-wrap: break-word;
+　　　word-wrap: break-word;
 }
 
 .image-box{
@@ -98,56 +182,76 @@ h1 {
 
 
 
+/*ユーザーページ*/
+.profile-box{
+    margin-top: 20px;
+}
+
+.user-name {
+    font-size: 40px; 
+    margin-top: 20px;
+}
+
 .profile-btn{
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 10px;
-    
+
 }
 
 .user-profile {
-    width: 400px;
+    width: 70%;
     padding: 10px;
     margin-bottom: 40px;
-    border: 1px solid;
+    background-color: ivory;
     overflow:hidden;
-}
-
-.review-content{
-    border: 1px solid;
-    padding: 5px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
-.reviewshow {
-     background-color: ivory;
-}
-
-
-.title-form {
-    width: 500px;
-    margin-bottom: 20px;
-}
-.content-form {
-    margin-bottom: 20px;
-    width: 800px;
-}
-
-.point-form {
-    margin-bottom: 20px;
-    width: 70px;
 }
 
 
 
 .user-box {
-    margin-bottom: 5px;
-    border: 1px solid;
-    padding: 5px;
-    width: 400px
+    margin-bottom: 8px;
+    width: 100%;
+    background-color: ivory;
     
 }
+
+
+
+
+
+
+/*レビュー詳細*/
+
+.review-content {
+   background-color: white;
+     
+    overflow: hidden;
+    padding: 5px;
+    
+    overflow-wrap: break-word;
+　　　word-wrap: break-word;
+}
+
+
+/*レビュー投稿*/
+
+.title-form {
+    width: 50%;
+    margin-bottom: 20px;
+}
+.content-form {
+    margin-bottom: 20px;
+    width: 70%;
+}
+
+.point-form {
+    margin-bottom: 20px;
+    width: 5%;
+}
+
+
+
 
 
 .top-right{
@@ -156,12 +260,126 @@ h1 {
 }
 
 
+/*スマホ用*/
+
 @media screen and (max-width: 480px) {
-    .main-title {
-    font-size: 4em;
-    margin-top: 70px;
+    /*トップページ*/
+    .top-design h1 {
+  
+  font-size: 45px;
+  
+}
+    
+    .top-design h2 {
+      position: absolute;
+  top: 40%;
+  left: 50%;
+  font-size: 18px;
+  width: 100%;
+}
+.top-design h3 {
+      position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 18px;
+  width: 100%;
+  
+}
+.top-design .top-button-1 {
+      position: absolute;
+  top: 140%;
+  width: 100%
+}
+
+.top-design .top-button-2 {
+      position: absolute;
+  top: 170%;
+  left: 50%;
+  
+}
+
+.top-design .top-button-3 {
+      position: absolute;
+  top: 200%;
+  left: 50%;
+  
+}
+
+
+
+    
+    
+    /*レビュー一覧*/
+    .search-box {
+    margin-top: 20px;
+    font-size: 14px;
+    
     }
-    h2{
-        font-size: 20px;
+    
+    .review-box {
+        font-size: 14px;
+        width: auto;
     }
+    .review-user-name {
+    font-size: 15px;
+    }
+    .review-title {
+    font-size: 18px;
+    margin-top: 5px;
+    border-bottom: 1px solid;
+    }
+    .review-list {
+    font-size: 15px;
+
+    }
+    .image-box{
+        margin: auto;
+    }
+    .review-time{
+    margin-top: 10px;
+    text-align: center;
+}
+
+    .box-review-content {
+   height: 70px;
+   
+    }
+
+
+    /*ユーザーページ*/
+    
+    .profile-box{
+    font-size: 10px;
+    }
+    .user-name {
+    font-size: 20px; 
+    margin-top: 15px;
+}
+    .user-profile {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+    margin-bottom: 40px;
+    background-color: ivory;
+    overflow:hidden;
+}
+    /*レビュー投稿*/
+
+.title-form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.content-form {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.point-form {
+    margin-bottom: 20px;
+    width: 20%;
+}
+
+
+
+
 }

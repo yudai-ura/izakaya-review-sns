@@ -1,10 +1,11 @@
+<div class="profile-box">
 <%= link_to '一覧に戻る', reviews_path %>
 
-<div class='container'>
+
     
  
     <div>
-      <div style='font-size: 50px; margin-top: 20px;'>
+      <div class="user-name">
         <% if user.myimage? %>
           <%= image_tag user.myimage.thumb100.url, class: 'myimage'  %>
         <% end %>
@@ -15,8 +16,9 @@
        <% if logged_in? %>
        <div class='profile-btn'>
            <% if current_user == user %>
-            <%= link_to 'プロフィール編集', edit_user_path(user), class: 'btn btn-primary' %>
-            <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn-primary' %>
+           <%= link_to 'レビュー投稿', new_review_path, class: 'btn  btn-outline-secondary' %>
+            <%= link_to 'プロフィール編集', edit_user_path(user), class: 'btn  btn-outline-secondary' %>
+            
           
           <% else %>
             <%= render 'relationships/follow_button', user: @user %>
@@ -25,9 +27,9 @@
           <% end %>
        </div>
        
-       <p>プロフィール文</p>
-       <div class='user-profile'><%= simple_format(user.profile) %></div>
+       
+       <div class='user-profile'><p>【プロフィール】</p><%= simple_format(user.profile) %></div>
       
-    
-  </div>
+   </div> 
+ 
   
