@@ -7,7 +7,9 @@ header{
 }
 
 body{
+    padding-top: 50px;
     background-color: #fff8cf;
+    padding-bottom: 50px;
 }
 
 h1 {
@@ -83,7 +85,7 @@ h1 {
 
 .top-design .top-button-1 {
       position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -92,7 +94,7 @@ h1 {
 
 .top-design .top-button-2 {
       position: absolute;
-  top: 75%;
+  top: 70%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -101,7 +103,7 @@ h1 {
 
 .top-design .top-button-3 {
       position: absolute;
-  top: 85%;
+  top: 75%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -262,7 +264,12 @@ h1 {
 
 /*スマホ用*/
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 999px) {
+    
+    body{
+    padding-top: 150px;
+    }
+    
     /*トップページ*/
     .top-design h1 {
   
@@ -287,20 +294,20 @@ h1 {
 }
 .top-design .top-button-1 {
       position: absolute;
-  top: 140%;
+  top: 135%;
   width: 100%
 }
 
 .top-design .top-button-2 {
       position: absolute;
-  top: 170%;
+  top: 160%;
   left: 50%;
   
 }
 
 .top-design .top-button-3 {
       position: absolute;
-  top: 200%;
+  top: 180%;
   left: 50%;
   
 }

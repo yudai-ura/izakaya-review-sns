@@ -16,8 +16,8 @@
        <% if logged_in? %>
        <div class='profile-btn'>
            <% if current_user == user %>
-           <%= link_to 'レビュー投稿', new_review_path, class: 'btn  btn-outline-secondary' %>
-            <%= link_to 'プロフィール編集', edit_user_path(user), class: 'btn  btn-outline-secondary' %>
+           <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn btn-warning' %>
+            <%= link_to 'プロフィール編集', edit_user_path(user), class: 'btn  btn-secondary' %>
             
           
           <% else %>

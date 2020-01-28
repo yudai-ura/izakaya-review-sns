@@ -1,11 +1,18 @@
+<div class="container">
 
 <h1 class="text-center">みんなのレビュー</h1>
-
+<div class="text-center">
+<% if logged_in? %>
+  <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn btn-warning' %>
+<% else %>
+  <h5><%= link_to 'ログイン', login_path %> してレビューを投稿する</h5>
+<% end %>
+</div>
 <div class="search-box text-left">
 <p>タイトル検索</p>
 <%= form_tag(reviews_path, :method => 'get') do %>
   <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %>
+  <%= submit_tag '検索', :name => nil, class: "btn btn-info" %>
 <% end %>
 
   </div>
@@ -20,3 +27,12 @@
   
   
   <%= paginate @reviews %>
+  <div class="text-center">
+<% if logged_in? %>
+  <%= link_to 'レビュー投稿', new_review_path, class: 'btn btn btn-warning' %>
+<% else %>
+  <h5><%= link_to 'ログイン', login_path %> してレビューを投稿する</h5>
+<% end %>
+</div>
+  
+  </div>

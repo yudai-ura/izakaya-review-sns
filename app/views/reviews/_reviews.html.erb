@@ -1,8 +1,10 @@
+
+
 <% reviews.each do |review| %>
   
-  <div class='container row review-box'>
+  <div class='row review-box'>
 
-    <div class='review-box-main col-md-9'>
+    <div class='review-box-main col-md-8 col-sm-6'>
       <div class='review-user-name'>
         <% if review.user.myimage? %>
           <%= image_tag review.user.myimage.thumb50.url, class: 'myimage' %>
@@ -43,7 +45,7 @@
     
     
    
-    <aside class='col-md-3'>
+    <div class='col-md-4 col-sm-6'>
     <div class="text-right review-time"><%= review.created_at.strftime("%Y-%m-%d %H:%M") %> の投稿</div> 
 
       
@@ -56,10 +58,10 @@
       <% end %>
       </div>
       
-    </aside>
+    </div>
     
   </div>
 <% end  %>
-     
+    
    
     

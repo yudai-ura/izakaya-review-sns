@@ -1,3 +1,5 @@
+
+<div class="container">
 <%= link_to '一覧に戻る', reviews_path %>
 <h2>新規レビュー投稿</h2>
 <%= form_with(model: @review, local: true) do |f| %>
@@ -17,7 +19,7 @@
           
     <%= f.label :point, '【評価点（0 ~ 100）】' %>
     <%= f.text_field :point, class: 'form-control point-form', rows: 1 %>
-    <%= f.label "【画像をアップロード】" %><br><%= f.file_field :image %>
+    <%= f.label "【画像をアップロード】" %><br><%= f.file_field :image, class:"btn btn-outline-secondary" %>
           
     <div class="margin-top-50">
       <%= f.label :category, '【カテゴリ(複数選択可)】' %><br>
@@ -31,5 +33,6 @@
   </div>
   <div class="margin-bottom-50">
   <%= f.submit 'レビューを投稿する', class: 'btn btn-primary' %>
- /div> <
+ </div>
 <% end %>
+</div>
